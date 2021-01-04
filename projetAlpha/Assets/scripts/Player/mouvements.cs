@@ -27,7 +27,12 @@ public class mouvements : MonoBehaviour
     /// </summary>
     void Start()
     {
+        // Recuperation du rigidBody2D
         rigidbody = GetComponent<Rigidbody2D>();
+
+        // Retrait de la gravite
+        rigidbody.mass = 0f;
+        rigidbody.gravityScale = 0f;
     }
 
     /// <summary>
