@@ -20,6 +20,8 @@ public class mouvements : MonoBehaviour
     Vector2 velocity;
 
     new Rigidbody2D rigidbody;
+    Camera cam;
+    Quaternion camRot;
 
     /// <summary>
     /// <c>Start</c> est appele a la premiere
@@ -29,6 +31,10 @@ public class mouvements : MonoBehaviour
     {
         // Recuperation du rigidBody2D
         rigidbody = GetComponent<Rigidbody2D>();
+
+        // Recuperation de la camera
+        cam = gameObject.GetComponentInChildren<Camera>();
+        camRot = cam.transform.rotation;
 
         // Retrait de la gravite
         rigidbody.mass = 0f;
@@ -40,22 +46,7 @@ public class mouvements : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // Direction du joueur definie par les
-        // entre verticales et horizontales.
-        Vector2 inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"), 
-                                   Input.GetAxisRaw("Vertical")).normalized;
-
-        // On ne change l'orientation que si le
-        // joueur entre activement une 
-        // orientation.
-        if(inputDirection.magnitude != 0)
-        {
-            angle = Mathf.Atan2(inputDirection.x, inputDirection.y) * Mathf.Rad2Deg;
-            transform.eulerAngles = Vector3.back * angle;
-        }
-
-        // Vitesse de deplacement
-        velocity = transform.up * speed * inputDirection.magnitude;
+        mouvSansCamRot();
     }
 
     /// <summary>
@@ -66,5 +57,32 @@ public class mouvements : MonoBehaviour
     {
         // Deplacement du personnage devant lui.
         rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
+    }
+    
+    /// <summary>
+    /// <c>mouvSansCamRot</c> gere les 
+    /// deplacements pour une cam sans
+    /// rotation.
+    /// </summary>
+    void mouvSansCamRot()
+    {
+        // Direction du joueur definie par les
+        // entre verticales et horizontales.
+        Vector2 inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"),
+                                   Input.GetAxisRaw("Vertical")).normalized;
+
+        // On ne change l'orientation que si le
+        // joueur entre activement une 
+        // orientation.
+        if (inputDirection.magnitude != 0)
+        {
+            angle = Mathf.Atan2(inputDirection.x, inputDirection.y) * Mathf.Rad2Deg;
+            transform.eulerAngles = Vector3.back * angle;
+        }
+
+        // Vitesse de deplacement
+        velocity = transform.up * speed * inputDirection.magnitude;
+
+        cam.transform.rotation = camRot;
     }
 }
