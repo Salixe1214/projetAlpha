@@ -9,9 +9,9 @@ public class Vie : MonoBehaviour
     bool estInvincible = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        collisions.onHit += onHit;
     }
 
 
@@ -24,8 +24,9 @@ public class Vie : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D CollisionEnnemi)
+    private void onHit()
     {
+        Debug.Log("Allo   /Vie.cs.29");
         if (!estInvincible)
         {
             pointDeVie -= 4;
