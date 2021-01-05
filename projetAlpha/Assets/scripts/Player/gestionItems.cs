@@ -77,6 +77,7 @@ public class gestionItems : MonoBehaviour
     IEnumerator useEpee()
     {
         Debug.Log("J'utilise l'épée!");
+        epee.GetComponent<Epee>().onUse(transform.position,transform.rotation);
         yield return null;
     }
 
