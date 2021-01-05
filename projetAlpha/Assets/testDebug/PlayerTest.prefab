@@ -13,8 +13,12 @@ GameObject:
   - component: {fileID: 6074453592763759311}
   - component: {fileID: 6074453592763759309}
   - component: {fileID: 5940949033360808518}
+  - component: {fileID: 26573445356189904}
+  - component: {fileID: 7675953251559725925}
   - component: {fileID: 6074453592763759304}
   - component: {fileID: 6074453592763759308}
+  - component: {fileID: 1596260358}
+  - component: {fileID: 1596260359}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -112,6 +116,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondesInvincibiliteApresCoup: 2
   pointDeVie: 10
+--- !u!114 &26573445356189904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074453592763696434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b994b83ca157c94a8884c274fe616bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7675953251559725925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074453592763696434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59716bd606ff75946b1698aa254dd288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epee: {fileID: 2055501999402550191, guid: 42e1c99dd1f92dd47ab7f084b6633171, type: 3}
+  lancePierre: {fileID: 1279365432430302031, guid: 814a5f1cef334f64bbdf5a1cc03bf783,
+    type: 3}
 --- !u!50 &6074453592763759304
 Rigidbody2D:
   serializedVersion: 4
@@ -159,6 +190,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1596260358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074453592763696434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41028a4ba741ab429f2f6bcf972e6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1596260359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074453592763696434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59716bd606ff75946b1698aa254dd288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epee: {fileID: 2055501999402550191, guid: 42e1c99dd1f92dd47ab7f084b6633171, type: 3}
+  lancePierre: {fileID: 1279365432430302031, guid: 814a5f1cef334f64bbdf5a1cc03bf783,
+    type: 3}
 --- !u!1 &6074453592938746214
 GameObject:
   m_ObjectHideFlags: 0
