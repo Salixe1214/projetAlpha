@@ -717,6 +717,38 @@ Transform:
   m_Father: {fileID: 206030613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1596260351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6074453592763696434, guid: cf6af441f95957f41b990fd1f837daa0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6074453591373019853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596260358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596260351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41028a4ba741ab429f2f6bcf972e6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1596260359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596260351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59716bd606ff75946b1698aa254dd288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epee: {fileID: 0}
+  lancePierre: {fileID: 0}
 --- !u!1 &1606546979
 GameObject:
   m_ObjectHideFlags: 0
