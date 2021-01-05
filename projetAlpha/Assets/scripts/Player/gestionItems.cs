@@ -14,7 +14,7 @@ public class gestionItems : MonoBehaviour
     void Start()
     {
         itemActif1 = items.epee;
-        itemActif2 = items.rien;
+        itemActif2 = items.lancePierre;
     }
 
     // Update is called once per frame
@@ -70,6 +70,7 @@ public class gestionItems : MonoBehaviour
     IEnumerator useSlingShot()
     {
         Debug.Log("J'utilise le lance pierre!");
+        lancePierre.GetComponent<slingshot>().onUse(transform.position, transform.rotation);
         yield return null;
     }
 
