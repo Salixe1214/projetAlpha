@@ -22,4 +22,13 @@ public class pierre : MonoBehaviour
 
         transform.position += transform.up * speed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Coll");
+        if (collision.transform.tag == "Mur")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
