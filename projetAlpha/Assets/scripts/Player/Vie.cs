@@ -7,6 +7,7 @@ public class Vie : MonoBehaviour
     public float secondesInvincibiliteApresCoup = 2;
     public int pointDeVie = 10;
     bool estInvincible = false;
+
     // Start is called before the first frame update
     void Start()
     {
