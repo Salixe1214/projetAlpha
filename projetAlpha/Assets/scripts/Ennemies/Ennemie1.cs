@@ -19,7 +19,7 @@ public class Ennemie1 : MonoBehaviour
             pointArret[i] = new Vector2(pointArret[i].x, pointArret[i].y);
         }
         transform.position = chemin.GetChild(0).position;
-        Debug.Log(chemin.GetChild(0).position);
+
         StartCoroutine(patrouilleEnnemie1());
     }
 
