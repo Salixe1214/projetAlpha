@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0479fe8c45b67e4b96398ae33f8c899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameInvincibiliteApresCoup: 45
+  secondesInvincibiliteApresCoup: 2
+  pointDeVie: 10
 --- !u!50 &6074453592763759304
 Rigidbody2D:
   serializedVersion: 4

@@ -1,7 +1,17 @@
-﻿using System.Collections;
+﻿/*
+ * Ennemie1.cs
+ * Code pour les deplacements et les statistiques de l'ennemie1
+ * 4 Janvier 2021
+ * MelpyX
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// La classe<c> Ennemie1 </c> defini les comportement d'un énemi et ses statistiques.
+/// </summary>
 public class Ennemie1 : MonoBehaviour
 {
     public Transform chemin;
@@ -28,6 +38,10 @@ public class Ennemie1 : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// <c>patrouilleEnnemie1</c> defini comment l'ennemie1 se déplace.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator patrouilleEnnemie1()
     {
         while(true)
@@ -41,7 +55,9 @@ public class Ennemie1 : MonoBehaviour
             yield return null;
         }
     }
-
+    /// <summary>
+    /// Dessine le chemin qu'empruntera l'ennemie1 (Debug seulement).
+    /// </summary>
     private void OnDrawGizmos()
     {
         Vector2 startPosition = chemin.GetChild(0).position;
