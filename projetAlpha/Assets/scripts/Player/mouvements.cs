@@ -46,6 +46,7 @@ public class mouvements : MonoBehaviour
     /// </summary>
     void Update()
     {
+        // Ça fait bouger quand on clic
         mouvSansCamRot();
     }
 
