@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class pierre : MonoBehaviour
 {
+    public int degatPierre = 2;
     int tempsAVivre = 180;
     public float speed = 15f;
 
@@ -28,6 +29,10 @@ public class pierre : MonoBehaviour
         Debug.Log("Coll");
         if (collision.transform.tag == "Mur")
             Destroy(gameObject);
-        
+        if (collision.transform.tag == "Ennemie")
+        {
+            collision.transform.GetComponent<Ennemie1>().degatRecu(degatPierre);
+            Destroy(gameObject);
+        }
     }
 }

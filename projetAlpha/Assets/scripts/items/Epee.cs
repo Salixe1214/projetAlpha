@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Epee : MonoBehaviour
 {
-    public int tempsAVivre = 2;
-    bool asUtiliseEpee = false;
+    public int degatEpee = 5;
+    public int tempsAVivre = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +17,19 @@ public class Epee : MonoBehaviour
     {
         if (tempsAVivre == 0)
             Destroy(gameObject);
-        
         tempsAVivre--;
-        
     }
 
     public void onUse(Vector2 position, Quaternion direction)
     {
         GameObject epeeApparu = Instantiate(gameObject, position, direction);
-        print(transform.position);
         epeeApparu.transform.position += direction*transform.up/2;
-        asUtiliseEpee = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print(collision.transform.tag);
+        if(collision.transform.tag =="Ennemie")
+            collision.transform.GetComponent<Ennemie1>().degatRecu(degatEpee);
     }
 }

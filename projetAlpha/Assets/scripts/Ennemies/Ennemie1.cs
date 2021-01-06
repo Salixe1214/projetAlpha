@@ -14,6 +14,7 @@ using UnityEngine;
 /// </summary>
 public class Ennemie1 : MonoBehaviour
 {
+    public int vieEnnemie1 = 5;
     public Transform chemin;
     public float vitesse = 15f;
     public float tempsAttente = 1.5f;
@@ -38,6 +39,14 @@ public class Ennemie1 : MonoBehaviour
         
     }
 
+    public void degatRecu(int dommage)
+    {
+        vieEnnemie1 -= dommage;
+        if (vieEnnemie1 <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     /// <summary>
     /// <c>patrouilleEnnemie1</c> defini comment l'ennemie1 se déplace.
     /// </summary>
