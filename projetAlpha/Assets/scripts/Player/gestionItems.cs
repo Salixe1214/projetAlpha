@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gestionItems : MonoBehaviour
 {
@@ -9,12 +10,20 @@ public class gestionItems : MonoBehaviour
     public GameObject epee;
     public GameObject lancePierre;
     items itemActif1, itemActif2;
+    
+    public Image itemSlot1;
+    public Image itemSlot2;
+
+    public Sprite[] itemsSprites;
 
     // Start is called before the first frame update
     void Start()
     {
         itemActif1 = items.epee;
+        itemSlot1.sprite = itemsSprites[(int)itemActif1];
+
         itemActif2 = items.lancePierre;
+        itemSlot2.sprite = itemsSprites[(int)itemActif2];
     }
 
     // Update is called once per frame
@@ -41,6 +50,9 @@ public class gestionItems : MonoBehaviour
             else
                 itemActif2++;
         }
+
+        itemSlot1.sprite = itemsSprites[(int)itemActif1];
+        itemSlot2.sprite = itemsSprites[(int)itemActif2];
     }
 
     void useItem(items item)

@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eff0b1c8d6633740bb8411cb19be80c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pierre: {fileID: 2252790902920046071, guid: 2a963076fe95fba48aef522315782b72,
+  m_pierre: {fileID: 8000648721260887006, guid: a4d5de2ed19235541bf7022af24793a3,
     type: 3}
+  slingShotCoolDownInitial: 60

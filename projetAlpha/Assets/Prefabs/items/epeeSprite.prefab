@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4961817118154635934}
   - component: {fileID: 4961817118154635935}
   - component: {fileID: 4961817118154635928}
-  - component: {fileID: 4961817118154635929}
   - component: {fileID: 4841227659454252441}
+  - component: {fileID: 6390243330815675095}
   m_Layer: 0
   m_Name: epeeSprite
   m_TagString: Epee
@@ -98,32 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degatEpee: 5
   tempsAVivre: 7
---- !u!61 &4961817118154635929
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4961817118154635930}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
-  m_EdgeRadius: 0
 --- !u!50 &4841227659454252441
 Rigidbody2D:
   serializedVersion: 4
@@ -145,3 +119,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!68 &6390243330815675095
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961817118154635930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5757373, y: -0.5629288}
+  - {x: -0.41711268, y: -0.4018135}
+  - {x: -0.24864617, y: -0.30565992}
+  - {x: -0.24597189, y: 1.0575852}
+  - {x: -0.04821513, y: 1.2684294}
+  - {x: 0.18785533, y: 1.0412407}
+  - {x: 0.20493247, y: -0.33847937}
+  - {x: 0.32909265, y: -0.41127777}
+  - {x: 0.5005982, y: -0.55166364}
