@@ -26,7 +26,6 @@ public class Vie : MonoBehaviour
 
     private void onHit()
     {
-        Debug.Log("Allo   /Vie.cs.29");
         if (!estInvincible)
         {
             pointDeVie -= 4;
@@ -39,11 +38,9 @@ public class Vie : MonoBehaviour
         if (!estInvincible)
         {
             estInvincible = true;
-            Debug.Log("est invincible");
             yield return new WaitForSeconds(secondesInvincibiliteApresCoup);
         }
         estInvincible = false;
-        Debug.Log("est pas invincible");
         yield return null;
     }
 }

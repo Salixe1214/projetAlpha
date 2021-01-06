@@ -30,7 +30,6 @@ public class Epee : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.transform.tag);
         if (collision.transform.tag == "Ennemie")
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatEpee);
     }
