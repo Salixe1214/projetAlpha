@@ -19,7 +19,7 @@ public class pierre : MonoBehaviour
         tempsAVivre--;
         if (tempsAVivre <= 0)
             Destroy(gameObject);
-
+         
         transform.position += transform.up * speed * Time.deltaTime;
     }
 
@@ -27,8 +27,7 @@ public class pierre : MonoBehaviour
     {
         Debug.Log("Coll");
         if (collision.transform.tag == "Mur")
-        {
             Destroy(gameObject);
-        }
+        
     }
 }
