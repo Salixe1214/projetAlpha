@@ -25,11 +25,10 @@ public class Epee : MonoBehaviour
         GameObject epeeApparu = Instantiate(gameObject, position, direction);
         epeeApparu.transform.position += direction*transform.up/2;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         print(collision.transform.tag);
-        if(collision.transform.tag =="Ennemie")
+        if (collision.transform.tag == "Ennemie")
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatEpee);
     }
 }

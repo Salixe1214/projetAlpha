@@ -20,6 +20,7 @@ public class Ennemie1 : MonoBehaviour
     public float tempsAttente = 1.5f;
 
     private int itProchainPoint = 1;
+
     // Start is called before the first frame update
     void Start()
     {
