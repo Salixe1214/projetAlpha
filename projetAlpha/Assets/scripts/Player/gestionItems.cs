@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class gestionItems : MonoBehaviour
 {
-    enum items { epee, map, boomerang, radar, lancePierre, rien };
+    enum items { epee, boomerang, lancePierre, map, radar, rien };
     GameObject[] inventaire = new GameObject[6];
 
     public GameObject epee;
-    public GameObject lancePierre = null;
-    public GameObject itemBoomrang = null;
     items itemActif1, itemActif2;
     public bool itemEnable1 = true;
     public bool itemEnable2 = true;
@@ -19,6 +17,8 @@ public class gestionItems : MonoBehaviour
     public Image itemSlot2;
 
     public Sprite[] itemsSprites;
+
+    // GameObject coffre = null;
 
     // Start is called before the first frame update
     void Start()
@@ -106,20 +106,20 @@ public class gestionItems : MonoBehaviour
 
     IEnumerator useSlingShot()
     {
-        lancePierre.GetComponent<slingshot>().onUse(transform.position, transform.rotation);
+        inventaire[(int)items.lancePierre].GetComponent<slingshot>().onUse(transform.position, transform.rotation);
         yield return null;
     }
 
     IEnumerator useEpee()
     {
-        epee.GetComponent<Epee>().onUse(transform.position,transform.rotation);
+        inventaire[(int)items.epee].GetComponent<Epee>().onUse(transform.position,transform.rotation);
         yield return null;
     }
 
     IEnumerator useBoomerang()
     {
         Vector3 postionLance = transform.position + transform.up * 1;
-        GameObject boomrangLance = Instantiate(itemBoomrang, postionLance, transform.rotation);
+        GameObject boomrangLance = Instantiate(inventaire[(int)items.boomerang], postionLance, transform.rotation);
         boomrangLance.GetComponent<boomrang>().lanceur = gameObject;
         boomrangLance.GetComponent<boomrang>().angle = transform.up;
         yield return null;
@@ -157,5 +157,43 @@ public class gestionItems : MonoBehaviour
         boomrang.mortBoomrang -= enableItem2;
         Epee.mortEpee -= enableItem2;
         pierre.mortPierre -= enableItem2;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("LOL");
+        if (collision.collider.tag == "Coffre")
+        {
+            GameObject objetCoffre = collision.gameObject.GetComponent<coffre>().itemContenu;
+            items item;
+
+            switch (objetCoffre.tag)
+            {
+                case "Boomrang":
+                    Debug.Log("boomrang");
+                    item = items.boomerang;
+                    break;
+                case "LancePierre":
+                    Debug.Log("boomrang");
+                    item = items.lancePierre;
+                    break;
+                case "Map":
+                    item = items.map;
+                    break;
+                case "Radar":
+                    item = items.radar;
+                    break;
+                default:
+                    item = items.rien;
+                    break;
+            }
+
+            if(item != items.rien)
+            {
+                inventaire[(int)item] = objetCoffre;
+            }
+
+            Destroy(collision.gameObject);
+        }
     }
 }

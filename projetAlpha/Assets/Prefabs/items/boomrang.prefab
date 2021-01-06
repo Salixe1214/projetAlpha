@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8162226564200351739}
   m_Layer: 0
   m_Name: boomrang
-  m_TagString: Untagged
+  m_TagString: Boomrang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   rotParSeconde: 3
   tempsDeLancer: 2
   speed: 10
+  degatBoomerang: 1
   angle: {x: 0, y: 0, z: 0}
   lanceur: {fileID: 0}
 --- !u!60 &4271828938919826751
