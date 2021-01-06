@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class gestionItems : MonoBehaviour
 {
     enum items { epee, map, boomerang, radar, lancePierre, rien };
+    GameObject[] inventaire = new GameObject[6];
 
     public GameObject epee;
-    public GameObject lancePierre;
-    public GameObject itemBoomrang;
+    public GameObject lancePierre = null;
+    public GameObject itemBoomrang = null;
     items itemActif1, itemActif2;
     public bool itemEnable1 = true;
     public bool itemEnable2 = true;
@@ -22,6 +23,7 @@ public class gestionItems : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventaire[(int) items.epee] = epee;
         itemActif1 = items.epee;
         itemSlot1.sprite = itemsSprites[(int)itemActif1];
 
@@ -32,7 +34,7 @@ public class gestionItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Item1") && itemEnable1)
+        if (Input.GetButtonDown("Item1") && itemEnable1 && inventaire[(int)itemActif1] != null)
         {
             useItem(itemActif1);
 
@@ -43,7 +45,7 @@ public class gestionItems : MonoBehaviour
             itemEnable1 = false;
         }
 
-        if (Input.GetButtonDown("Item2") && itemEnable2)
+        if (Input.GetButtonDown("Item2") && itemEnable2 && inventaire[(int)itemActif2] != null)
         {
             useItem(itemActif2);
 
@@ -59,11 +61,19 @@ public class gestionItems : MonoBehaviour
             if (itemActif1 == items.rien)
                 itemActif1 = items.epee;
             else
+            {
                 itemActif1++;
+                if (inventaire[(int)itemActif1] == null)
+                    itemActif1 = items.rien;
+            }
             if (itemActif2 == items.rien)
                 itemActif2 = items.epee;
             else
+            {
                 itemActif2++;
+                if (inventaire[(int)itemActif2] == null)
+                    itemActif2 = items.rien;
+            }
         }
 
         itemSlot1.sprite = itemsSprites[(int)itemActif1];
