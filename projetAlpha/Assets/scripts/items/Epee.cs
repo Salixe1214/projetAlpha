@@ -20,7 +20,7 @@ public class Epee : MonoBehaviour
             Destroy(gameObject);
         tempsAVivre--;
     }
-
+    
     public void onUse(Vector2 position, Quaternion direction)
     {
         GameObject epeeApparu = Instantiate(gameObject, position, direction);
