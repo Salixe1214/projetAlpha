@@ -6,6 +6,7 @@ public class Epee : MonoBehaviour
 {
     public int degatEpee = 5;
     public int tempsAVivre = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class Epee : MonoBehaviour
     public void onUse(Vector2 position, Quaternion direction)
     {
         GameObject epeeApparu = Instantiate(gameObject, position, direction);
-        epeeApparu.transform.position += direction*transform.up/2;
+        epeeApparu.transform.position += direction*transform.up;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
