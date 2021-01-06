@@ -33,8 +33,11 @@ public class mouvements : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
 
         // Recuperation de la camera
-        cam = gameObject.GetComponentInChildren<Camera>();
-        camRot = cam.transform.rotation;
+        if(gameObject.GetComponentInChildren<Camera>() != null)
+        {
+            cam = gameObject.GetComponentInChildren<Camera>();
+            camRot = cam.transform.rotation;
+        }
 
         // Retrait de la gravite
         rigidbody.mass = 0f;
@@ -84,7 +87,8 @@ public class mouvements : MonoBehaviour
         // Vitesse de deplacement
         velocity = transform.up * speed * inputDirection.magnitude;
 
-        cam.transform.rotation = camRot;
+        if(cam != null)
+            cam.transform.rotation = camRot;
     }
 
 }

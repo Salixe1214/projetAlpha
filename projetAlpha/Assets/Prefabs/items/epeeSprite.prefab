@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4961817118154635928}
   - component: {fileID: 4841227659454252441}
   - component: {fileID: 6390243330815675095}
+  - component: {fileID: -3656971289735189402}
   m_Layer: 0
   m_Name: epeeSprite
   m_TagString: Epee
@@ -129,7 +130,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -144,3 +145,16 @@ EdgeCollider2D:
   - {x: 0.20493247, y: -0.33847937}
   - {x: 0.32909265, y: -0.41127777}
   - {x: 0.5005982, y: -0.55166364}
+--- !u!114 &-3656971289735189402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961817118154635930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea9b702a048d0845b2fa214186a5641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7

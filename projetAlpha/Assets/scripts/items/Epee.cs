@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Epee : MonoBehaviour
 {
+    public static event System.Action mortEpee;
+
     public int degatEpee = 5;
     public int tempsAVivre = 5;
 
@@ -17,7 +19,7 @@ public class Epee : MonoBehaviour
     void Update()
     {
         if (tempsAVivre == 0)
-            Destroy(gameObject);
+            endOfLife();
         tempsAVivre--;
     }
     
@@ -31,5 +33,12 @@ public class Epee : MonoBehaviour
         print(collision.transform.tag);
         if (collision.transform.tag == "Ennemie")
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatEpee);
+    }
+
+    void endOfLife()
+    {
+        Destroy(gameObject);
+        if (mortEpee != null)
+            mortEpee();
     }
 }
