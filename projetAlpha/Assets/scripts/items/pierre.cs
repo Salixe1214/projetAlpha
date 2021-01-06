@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class pierre : MonoBehaviour
 {
+    public static event System.Action mortPierre;
+
     public int degatPierre = 2;
     public float speed = 15f;
     public int tempsAVivre = 180;
@@ -23,7 +25,7 @@ public class pierre : MonoBehaviour
     {
         tempsAVivre--;
         if (tempsAVivre <= 0)
-            Destroy(gameObject);
+            endOfLife();
          
         transform.position += transform.up * speed * Time.deltaTime;
     }
@@ -38,13 +40,20 @@ public class pierre : MonoBehaviour
     {
         // Se détruit en touchant un mur
         if (collision.transform.tag == "Mur")
-            Destroy(gameObject);
+            endOfLife();
 
         // Collision avec un ennemie -> le blesse
         if (collision.transform.tag == "Ennemie")
         {
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatPierre);
-            Destroy(gameObject);
+            endOfLife();
         }
+    }
+
+    void endOfLife()
+    {
+        Destroy(gameObject);
+        if (mortPierre != null)
+            mortPierre();
     }
 }

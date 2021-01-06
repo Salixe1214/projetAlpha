@@ -28,7 +28,6 @@ public class collisions : MonoBehaviour
         if(collision.tag == "Ennemie" && onHit != null)
         {
             onHit();
-            Debug.Log("Touché: " + gameObject.GetComponent<Vie>().pointDeVie);
         }
     }
 }

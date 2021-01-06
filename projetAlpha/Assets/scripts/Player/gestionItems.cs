@@ -11,7 +11,9 @@ public class gestionItems : MonoBehaviour
     public GameObject lancePierre;
     public GameObject itemBoomrang;
     items itemActif1, itemActif2;
-    
+    public bool itemEnable1 = true;
+    public bool itemEnable2 = true;
+
     public Image itemSlot1;
     public Image itemSlot2;
 
@@ -30,14 +32,26 @@ public class gestionItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Item1"))
+        if (Input.GetButtonDown("Item1") && itemEnable1)
         {
             useItem(itemActif1);
+
+            boomrang.mortBoomrang += enableItem1;
+            Epee.mortEpee += enableItem1;
+            pierre.mortPierre += enableItem1;
+
+            itemEnable1 = false;
         }
 
-        if (Input.GetButtonDown("Item2"))
+        if (Input.GetButtonDown("Item2") && itemEnable2)
         {
             useItem(itemActif2);
+
+            boomrang.mortBoomrang += enableItem2;
+            Epee.mortEpee += enableItem2;
+            pierre.mortPierre += enableItem2;
+
+            itemEnable2 = false;
         }
 
         if (Input.GetButtonDown("Interaction"))
@@ -98,19 +112,40 @@ public class gestionItems : MonoBehaviour
         GameObject boomrangLance = Instantiate(itemBoomrang, postionLance, transform.rotation);
         boomrangLance.GetComponent<boomrang>().lanceur = gameObject;
         boomrangLance.GetComponent<boomrang>().angle = transform.up;
-        
         yield return null;
     }
 
     IEnumerator useMap()
     {
         Debug.Log("J'utilise la map!");
+        enableItem1();
+        enableItem2();
         yield return null;
     }
 
     IEnumerator useRadar()
     {
         Debug.Log("J'utilise le radar!");
+        enableItem1();
+        enableItem2();
         yield return null;
+    }
+
+    public void enableItem1()
+    {
+        itemEnable1 = true;
+
+        boomrang.mortBoomrang -= enableItem1;
+        Epee.mortEpee -= enableItem1;
+        pierre.mortPierre -= enableItem1;
+    }
+
+    public void enableItem2()
+    {
+        itemEnable2 = true;
+
+        boomrang.mortBoomrang -= enableItem2;
+        Epee.mortEpee -= enableItem2;
+        pierre.mortPierre -= enableItem2;
     }
 }

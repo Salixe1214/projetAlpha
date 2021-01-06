@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class boomrang : MonoBehaviour
 {
+    public static event System.Action mortBoomrang;
+
     public float rotParSeconde = 3;
     public float tempsDeLancer = 5;
     float tempsImmateriel;
@@ -42,8 +44,8 @@ public class boomrang : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-            Destroy(gameObject);
-        
+            endOfLife();
+
         if (collision.transform.tag == "Ennemie")
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatBoomerang);
     }
@@ -51,7 +53,7 @@ public class boomrang : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Player" && tempsDeLancer <= tempsImmateriel)
-            Destroy(gameObject);
+            endOfLife();
 
         if (collision.collider.tag == "Mur")
         {
@@ -60,5 +62,12 @@ public class boomrang : MonoBehaviour
 
         if (collision.transform.tag == "Ennemie")
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatBoomerang);
+    }
+
+    void endOfLife()
+    {
+        Destroy(gameObject);
+        if (mortBoomrang != null)
+            mortBoomrang();
     }
 }
