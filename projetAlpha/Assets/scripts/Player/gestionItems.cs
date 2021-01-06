@@ -9,6 +9,7 @@ public class gestionItems : MonoBehaviour
 
     public GameObject epee;
     public GameObject lancePierre;
+    public GameObject itemBoomrang;
     items itemActif1, itemActif2;
     
     public Image itemSlot1;
@@ -22,7 +23,7 @@ public class gestionItems : MonoBehaviour
         itemActif1 = items.epee;
         itemSlot1.sprite = itemsSprites[(int)itemActif1];
 
-        itemActif2 = items.lancePierre;
+        itemActif2 = items.rien;
         itemSlot2.sprite = itemsSprites[(int)itemActif2];
     }
 
@@ -81,21 +82,23 @@ public class gestionItems : MonoBehaviour
 
     IEnumerator useSlingShot()
     {
-        Debug.Log("J'utilise le lance pierre!");
         lancePierre.GetComponent<slingshot>().onUse(transform.position, transform.rotation);
         yield return null;
     }
 
     IEnumerator useEpee()
     {
-        Debug.Log("J'utilise l'épée!");
         epee.GetComponent<Epee>().onUse(transform.position,transform.rotation);
         yield return null;
     }
 
     IEnumerator useBoomerang()
     {
-        Debug.Log("J'utilise le boomerang!");
+        Vector3 postionLance = transform.position + transform.up * 1;
+        GameObject boomrangLance = Instantiate(itemBoomrang, postionLance, transform.rotation);
+        boomrangLance.GetComponent<boomrang>().lanceur = gameObject;
+        boomrangLance.GetComponent<boomrang>().angle = transform.up;
+        
         yield return null;
     }
 

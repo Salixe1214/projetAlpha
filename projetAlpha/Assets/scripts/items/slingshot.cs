@@ -8,6 +8,7 @@ public class slingshot : MonoBehaviour
     public int slingShotCoolDownInitial = 60;
     int slingShotCoolDown;
     bool peutUtiliserObjet = true;
+
     // Start is called before the first frame update
     void Start()
     {

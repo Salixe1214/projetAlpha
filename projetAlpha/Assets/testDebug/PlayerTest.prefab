@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 6074453592763759308}
   m_Layer: 0
   m_Name: PlayerTest
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,10 @@ MonoBehaviour:
   epee: {fileID: 4961817118154635930, guid: 67d25e74d887145469709d6fa15944b4, type: 3}
   lancePierre: {fileID: 1279365432430302031, guid: 814a5f1cef334f64bbdf5a1cc03bf783,
     type: 3}
+  itemBoomrang: {fileID: 5341623796731716473, guid: 7daa6c2afa3af3f429584a4bcb19483a,
+    type: 3}
+  itemSlot1: {fileID: 0}
+  itemSlot2: {fileID: 0}
   itemsSprites:
   - {fileID: 21300000, guid: c723e0b5fa00db64f8522d084e923624, type: 3}
   - {fileID: 21300000, guid: 6c6b0db70febadd49b44ca221956f775, type: 3}
