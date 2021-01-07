@@ -8,7 +8,6 @@ public class gestionItems : MonoBehaviour
     enum items { epee, boomerang, lancePierre, map, radar, rien };
     GameObject[] inventaire = new GameObject[6];
 
-    public GameObject epee;
     items itemActif1, itemActif2;
     public bool itemEnable1 = true;
     public bool itemEnable2 = true;
@@ -16,19 +15,22 @@ public class gestionItems : MonoBehaviour
     public Image itemSlot1;
     public Image itemSlot2;
 
-    public Sprite[] itemsSprites;
+    public Sprite defaultSprite;
+    Sprite[] itemsSprites = new Sprite[6];
 
     // GameObject coffre = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventaire[(int) items.epee] = epee;
-        itemActif1 = items.epee;
+        itemActif1 = items.rien;
         itemSlot1.sprite = itemsSprites[(int)itemActif1];
 
         itemActif2 = items.rien;
         itemSlot2.sprite = itemsSprites[(int)itemActif2];
+
+        for (int i = 0; i < itemsSprites.Length; i++)
+            itemsSprites[i] = defaultSprite;
     }
 
     // Update is called once per frame
@@ -63,16 +65,13 @@ public class gestionItems : MonoBehaviour
             else
             {
                 itemActif1++;
-                if (inventaire[(int)itemActif1] == null)
-                    itemActif1 = items.rien;
+                Debug.Log(inventaire[(int)itemActif1].tag);
             }
             if (itemActif2 == items.rien)
                 itemActif2 = items.epee;
             else
             {
                 itemActif2++;
-                if (inventaire[(int)itemActif2] == null)
-                    itemActif2 = items.rien;
             }
         }
 
@@ -161,7 +160,6 @@ public class gestionItems : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("LOL");
         if (collision.collider.tag == "Coffre")
         {
             GameObject objetCoffre = collision.gameObject.GetComponent<coffre>().itemContenu;
@@ -183,6 +181,9 @@ public class gestionItems : MonoBehaviour
                 case "Radar":
                     item = items.radar;
                     break;
+                case "Epee":
+                    item = items.epee;
+                    break;
                 default:
                     item = items.rien;
                     break;
@@ -191,6 +192,7 @@ public class gestionItems : MonoBehaviour
             if(item != items.rien)
             {
                 inventaire[(int)item] = objetCoffre;
+                itemsSprites[(int)item] = objetCoffre.GetComponent<SpriteRenderer>().sprite;
             }
 
             Destroy(collision.gameObject);

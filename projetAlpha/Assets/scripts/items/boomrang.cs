@@ -47,7 +47,10 @@ public class boomrang : MonoBehaviour
             endOfLife();
 
         if (collision.transform.tag == "Ennemie")
+        {
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatBoomerang);
+            tempsDeLancer = 0;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,10 +61,14 @@ public class boomrang : MonoBehaviour
         if (collision.collider.tag == "Mur")
         {
             angle = collision.contacts[0].normal;
+            tempsDeLancer = 0;
         }
 
         if (collision.transform.tag == "Ennemie")
+        {
             collision.transform.GetComponent<Ennemie1>().degatRecu(degatBoomerang);
+            tempsDeLancer = 0;
+        }
     }
 
     void endOfLife()

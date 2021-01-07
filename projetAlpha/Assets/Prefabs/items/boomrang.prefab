@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotParSeconde: 3
-  tempsDeLancer: 2
+  tempsDeLancer: 1
   speed: 10
   degatBoomerang: 1
   angle: {x: 0, y: 0, z: 0}
