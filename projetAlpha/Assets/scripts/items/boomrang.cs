@@ -58,7 +58,7 @@ public class boomrang : MonoBehaviour
         if (collision.collider.tag == "Player" && tempsDeLancer <= tempsImmateriel)
             endOfLife();
 
-        if (collision.collider.tag == "Mur")
+        if (collision.collider.tag == "Mur" || collision.collider.tag == "Coffre")
         {
             angle = collision.contacts[0].normal;
             tempsDeLancer = 0;

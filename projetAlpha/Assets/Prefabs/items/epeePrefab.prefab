@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6390243330815675095}
   - component: {fileID: -3656971289735189402}
   m_Layer: 0
-  m_Name: epeeSprite
+  m_Name: epeePrefab
   m_TagString: Epee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1114ea8fce7c9b4a851f91b110d5a09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbc672158ce0b624aae5b01a978ed4af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

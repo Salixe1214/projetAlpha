@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Vie : MonoBehaviour
 {
-    public float secondesInvincibiliteApresCoup = 2;
+    public float secondesInvincibiliteApresCoup = 1;
     public int pointDeVie = 10;
     bool estInvincible = false;
+    Color couleurParDefaut;
 
     // Start is called before the first frame update
     void Awake()
     {
         collisions.onHit += onHit;
+        couleurParDefaut = GetComponent<SpriteRenderer>().color;
     }
 
 
@@ -29,6 +31,7 @@ public class Vie : MonoBehaviour
         if (!estInvincible)
         {
             pointDeVie -= 4;
+            GetComponent<SpriteRenderer>().color = new Color(.75f,.10f,.15f);
             StartCoroutine(invincibiliteFrame());
         }
     }
@@ -41,6 +44,7 @@ public class Vie : MonoBehaviour
             yield return new WaitForSeconds(secondesInvincibiliteApresCoup);
         }
         estInvincible = false;
+        GetComponent<SpriteRenderer>().color = couleurParDefaut;
         yield return null;
     }
 }
