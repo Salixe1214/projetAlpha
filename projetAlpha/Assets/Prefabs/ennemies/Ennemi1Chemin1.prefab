@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56662a1153956fb41a59635c65b92289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vieEnnemie1: 5
   chemin: {fileID: 3481728768561798527}
   vitesse: 7
   tempsAttente: 1.5

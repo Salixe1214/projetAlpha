@@ -65,7 +65,6 @@ public class gestionItems : MonoBehaviour
             else
             {
                 itemActif1++;
-                Debug.Log(inventaire[(int)itemActif1].tag);
             }
             if (itemActif2 == items.rien)
                 itemActif2 = items.epee;
